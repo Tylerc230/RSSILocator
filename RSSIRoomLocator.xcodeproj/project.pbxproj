@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		249A473BAF505F15BF41EC2C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1529AF1169690FB12D9450AC /* libPods.a */; };
 		70361AD61ACE410800D9C22C /* RoomCountSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70361AD51ACE410800D9C22C /* RoomCountSelectionViewController.swift */; };
+		70361AD91ACE4BF900D9C22C /* RAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70361AD81ACE4BF900D9C22C /* RAC.swift */; };
+		70361ADC1ACE50BE00D9C22C /* RSSITrainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70361ADB1ACE50BE00D9C22C /* RSSITrainer.swift */; };
 		7072EE5C1AC8FB2E002F2F29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7072EE5B1AC8FB2E002F2F29 /* AppDelegate.swift */; };
 		7072EE5E1AC8FB2E002F2F29 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7072EE5D1AC8FB2E002F2F29 /* FirstViewController.swift */; };
 		7072EE601AC8FB2E002F2F29 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7072EE5F1AC8FB2E002F2F29 /* SecondViewController.swift */; };
@@ -28,7 +31,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1529AF1169690FB12D9450AC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E326E6382FF5BDF6E5B7D1D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		70361AD51ACE410800D9C22C /* RoomCountSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomCountSelectionViewController.swift; sourceTree = "<group>"; };
+		70361AD71ACE457700D9C22C /* RSSIRoomLocator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RSSIRoomLocator-Bridging-Header.h"; sourceTree = "<group>"; };
+		70361AD81ACE4BF900D9C22C /* RAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAC.swift; sourceTree = "<group>"; };
+		70361ADB1ACE50BE00D9C22C /* RSSITrainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSITrainer.swift; sourceTree = "<group>"; };
 		7072EE561AC8FB2E002F2F29 /* RSSIRoomLocator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSIRoomLocator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7072EE5A1AC8FB2E002F2F29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7072EE5B1AC8FB2E002F2F29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +48,7 @@
 		7072EE6D1AC8FB2E002F2F29 /* RSSIRoomLocatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RSSIRoomLocatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7072EE721AC8FB2E002F2F29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7072EE731AC8FB2E002F2F29 /* RSSIRoomLocatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSIRoomLocatorTests.swift; sourceTree = "<group>"; };
+		ED13385D1E2AF88DD2086575 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				249A473BAF505F15BF41EC2C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +70,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		538BAA266C641914F7D94D34 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3E326E6382FF5BDF6E5B7D1D /* Pods.debug.xcconfig */,
+				ED13385D1E2AF88DD2086575 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		70361ADA1ACE505700D9C22C /* RSSILocatorLib */ = {
+			isa = PBXGroup;
+			children = (
+				70361ADB1ACE50BE00D9C22C /* RSSITrainer.swift */,
+			);
+			path = RSSILocatorLib;
+			sourceTree = "<group>";
+		};
 		7072EE4D1AC8FB2E002F2F29 = {
 			isa = PBXGroup;
 			children = (
 				7072EE581AC8FB2E002F2F29 /* RSSIRoomLocator */,
 				7072EE701AC8FB2E002F2F29 /* RSSIRoomLocatorTests */,
 				7072EE571AC8FB2E002F2F29 /* Products */,
+				538BAA266C641914F7D94D34 /* Pods */,
+				7B6538B63C1E1278F30A8F4E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +110,7 @@
 		7072EE581AC8FB2E002F2F29 /* RSSIRoomLocator */ = {
 			isa = PBXGroup;
 			children = (
+				70361ADA1ACE505700D9C22C /* RSSILocatorLib */,
 				7072EE5B1AC8FB2E002F2F29 /* AppDelegate.swift */,
 				7072EE5D1AC8FB2E002F2F29 /* FirstViewController.swift */,
 				7072EE5F1AC8FB2E002F2F29 /* SecondViewController.swift */,
@@ -89,6 +119,8 @@
 				7072EE661AC8FB2E002F2F29 /* LaunchScreen.xib */,
 				7072EE591AC8FB2E002F2F29 /* Supporting Files */,
 				70361AD51ACE410800D9C22C /* RoomCountSelectionViewController.swift */,
+				70361AD71ACE457700D9C22C /* RSSIRoomLocator-Bridging-Header.h */,
+				70361AD81ACE4BF900D9C22C /* RAC.swift */,
 			);
 			path = RSSIRoomLocator;
 			sourceTree = "<group>";
@@ -118,6 +150,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		7B6538B63C1E1278F30A8F4E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1529AF1169690FB12D9450AC /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -125,9 +165,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7072EE771AC8FB2E002F2F29 /* Build configuration list for PBXNativeTarget "RSSIRoomLocator" */;
 			buildPhases = (
+				984115C711605C95090B89BF /* Check Pods Manifest.lock */,
 				7072EE521AC8FB2E002F2F29 /* Sources */,
 				7072EE531AC8FB2E002F2F29 /* Frameworks */,
 				7072EE541AC8FB2E002F2F29 /* Resources */,
+				E5B01393696A97CA87254BE1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,14 +255,49 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		984115C711605C95090B89BF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E5B01393696A97CA87254BE1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7072EE521AC8FB2E002F2F29 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70361AD91ACE4BF900D9C22C /* RAC.swift in Sources */,
 				70361AD61ACE410800D9C22C /* RoomCountSelectionViewController.swift in Sources */,
 				7072EE601AC8FB2E002F2F29 /* SecondViewController.swift in Sources */,
 				7072EE5C1AC8FB2E002F2F29 /* AppDelegate.swift in Sources */,
+				70361ADC1ACE50BE00D9C22C /* RSSITrainer.swift in Sources */,
 				7072EE5E1AC8FB2E002F2F29 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,21 +419,25 @@
 		};
 		7072EE781AC8FB2E002F2F29 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E326E6382FF5BDF6E5B7D1D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RSSIRoomLocator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RSSIRoomLocator/RSSIRoomLocator-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		7072EE791AC8FB2E002F2F29 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED13385D1E2AF88DD2086575 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RSSIRoomLocator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RSSIRoomLocator/RSSIRoomLocator-Bridging-Header.h";
 			};
 			name = Release;
 		};
