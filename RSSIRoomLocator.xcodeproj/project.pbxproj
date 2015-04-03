@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70361AD61ACE410800D9C22C /* RoomCountSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70361AD51ACE410800D9C22C /* RoomCountSelectionViewController.swift */; };
 		7072EE5C1AC8FB2E002F2F29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7072EE5B1AC8FB2E002F2F29 /* AppDelegate.swift */; };
 		7072EE5E1AC8FB2E002F2F29 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7072EE5D1AC8FB2E002F2F29 /* FirstViewController.swift */; };
 		7072EE601AC8FB2E002F2F29 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7072EE5F1AC8FB2E002F2F29 /* SecondViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		70361AD51ACE410800D9C22C /* RoomCountSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomCountSelectionViewController.swift; sourceTree = "<group>"; };
 		7072EE561AC8FB2E002F2F29 /* RSSIRoomLocator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSIRoomLocator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7072EE5A1AC8FB2E002F2F29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7072EE5B1AC8FB2E002F2F29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				7072EE641AC8FB2E002F2F29 /* Images.xcassets */,
 				7072EE661AC8FB2E002F2F29 /* LaunchScreen.xib */,
 				7072EE591AC8FB2E002F2F29 /* Supporting Files */,
+				70361AD51ACE410800D9C22C /* RoomCountSelectionViewController.swift */,
 			);
 			path = RSSIRoomLocator;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70361AD61ACE410800D9C22C /* RoomCountSelectionViewController.swift in Sources */,
 				7072EE601AC8FB2E002F2F29 /* SecondViewController.swift in Sources */,
 				7072EE5C1AC8FB2E002F2F29 /* AppDelegate.swift in Sources */,
 				7072EE5E1AC8FB2E002F2F29 /* FirstViewController.swift in Sources */,
@@ -409,6 +413,7 @@
 				7072EE791AC8FB2E002F2F29 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7072EE7A1AC8FB2E002F2F29 /* Build configuration list for PBXNativeTarget "RSSIRoomLocatorTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				7072EE7C1AC8FB2E002F2F29 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
