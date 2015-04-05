@@ -11,6 +11,7 @@ class RoomCountSelectionViewController: UIViewController {
     @IBOutlet weak var roomCountStepper:UIStepper!
     @IBOutlet weak var countLabel:UILabel!
     @IBOutlet weak var tableView:UITableView!
+    private let trainer = RSSIDataTrainer()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initUI()
@@ -44,5 +45,15 @@ extension RoomCountSelectionViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
         cell.textLabel?.text = "\(indexPath.row + 1)"
         return cell
+    }
+}
+
+extension RoomCountSelectionViewController: UITableViewDelegate {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        trainer.startCollectingDataForRoom(indexPath.row + 1)
+    }
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        trainer.finishCollectiongData()
     }
 }
