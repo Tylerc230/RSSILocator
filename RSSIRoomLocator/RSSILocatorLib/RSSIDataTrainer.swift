@@ -13,6 +13,7 @@ import ReactiveCocoa
 
 @objc public class RSSIDataTrainer: NSObject {
     private var currentCollection:RoomTrainingDataCollection? = nil
+    private let collections = NSMutableSet()
     private let centralManager: CBCentralManager! = nil
     
     override init() {
@@ -28,10 +29,21 @@ import ReactiveCocoa
     
     public func finishCollectiongData() {
         stopAdvertisingStream()
+        if let currentCollection = currentCollection {
+            collections.addObject(currentCollection)
+        }
+        trainingDataForSamples()
     }
     
     public func cancelCurrentCollection() {
         
+    }
+    
+    public func trainingDataForSamples() -> NSData {
+        let allPeripheralIdentifiers = collectPeripheralIdentifiers()
+        let numColums = allPeripheralIdentifiers.count
+        print(allPeripheralIdentifiers)
+        return NSData()
     }
     
     //Mark: private methods
@@ -49,6 +61,17 @@ import ReactiveCocoa
     
     private func stopAdvertisingStream() {
         centralManager.stopScan()
+    }
+    
+    private func collectPeripheralIdentifiers() -> [String] {
+        let identifiers = NSMutableSet()
+        for collection in collections {
+            if let collection = collection as? RoomTrainingDataCollection {
+                identifiers.unionSet(collection.allPeripheralIds())
+            }
+        }
+        let identifierArray = identifiers.allObjects as [String]
+        return identifierArray.sorted(<)
     }
 }
 

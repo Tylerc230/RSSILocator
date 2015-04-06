@@ -23,4 +23,35 @@
             }
         }
     }
+    
+    func allPeripheralIds() -> NSSet {
+        let peripheralIds = NSMutableSet()
+        for sample in collectedData {
+            peripheralIds.addObject(sample.peripheralIdentifier)
+        }
+        return peripheralIds
+    }
+    
+    func trainingDataWithColumns(peripheralIdentifierColumns:[String]) -> NSData {
+        let numColumns = peripheralIdentifierColumns.count * 1
+        let numRows = collectedData.count
+        let dataSize = numColumns * numRows
+        let data = NSMutableData(length: dataSize)
+        let columns = peripheralIdentifierColumns as NSArray
+        let rows = collectedData as NSArray
+        columns.rac_sequence.map {
+            (obj:AnyObject!) -> AnyObject! in
+            let peripheralId = obj as String
+            return rows.rac_sequence.map{
+                (obj:AnyObject) -> AnyObject! in
+                let sample = obj as RSSISample
+                if sample.peripheralIdentifier == peripheralId {
+                    return sample.rssiValue
+                } else {
+                    return kMissingValue
+                }
+            }!
+        }
+        return data!
+    }
 }
