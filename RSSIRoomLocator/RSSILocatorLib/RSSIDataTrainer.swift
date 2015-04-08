@@ -14,7 +14,7 @@ import ReactiveCocoa
 @objc public class RSSIDataTrainer: NSObject {
     private var currentCollection:RoomTrainingDataCollection? = nil
     private let collections = NSMutableSet()
-    private let centralManager: CBCentralManager! = nil
+    private var centralManager: CBCentralManager! = nil
     
     override init() {
         super.init()
@@ -44,7 +44,7 @@ import ReactiveCocoa
         let numColums = allPeripheralIdentifiers.count
         let data = NSMutableData()
         for roomDataObj in collections {
-            let roomData = roomDataObj as RoomTrainingDataCollection
+            let roomData = roomDataObj as! RoomTrainingDataCollection
             let rawRoomData = roomData.trainingDataWithColumns(allPeripheralIdentifiers)
             data.appendData(rawRoomData)
         }
@@ -56,9 +56,9 @@ import ReactiveCocoa
         centralManager.scanForPeripheralsWithServices(nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey: true])
         return rac_signalForSelector(Selector("centralManager:didDiscoverPeripheral:advertisementData:RSSI:"), fromProtocol: CBCentralManagerDelegate.self).map {
             (obj:AnyObject!) -> AnyObject in
-            let params = obj as RACTuple
-            let peripheral = params.second as CBPeripheral
-            let rssi = params.fourth as RSSIValue
+            let params = obj as! RACTuple
+            let peripheral = params.second as! CBPeripheral
+            let rssi = params.fourth as! RSSIValue
             let UUIDString = peripheral.identifier.UUIDString
             return RSSISample(peripheralIdentifier: UUIDString, rssiValue: rssi)
         }
@@ -72,10 +72,10 @@ import ReactiveCocoa
         let identifiers = NSMutableSet()
         for collection in collections {
             if let collection = collection as? RoomTrainingDataCollection {
-                identifiers.unionSet(collection.allPeripheralIds())
+                identifiers.unionSet(collection.allPeripheralIds() as Set<NSObject>)
             }
         }
-        let identifierArray = identifiers.allObjects as [String]
+        let identifierArray = identifiers.allObjects as! [String]
         return identifierArray.sorted(<)
     }
 }
