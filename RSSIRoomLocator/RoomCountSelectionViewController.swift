@@ -21,6 +21,10 @@ class RoomCountSelectionViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func saveTrainingData() {
+        trainer.trainingDataForSamples()
+    }
+    
     private func initUI() {
         let valueChangeSignal = RACObserve(roomCountStepper, "value")
         valueChangeSignal.subscribeNext {

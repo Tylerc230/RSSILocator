@@ -42,8 +42,13 @@ import ReactiveCocoa
     public func trainingDataForSamples() -> NSData {
         let allPeripheralIdentifiers = collectPeripheralIdentifiers()
         let numColums = allPeripheralIdentifiers.count
-        print(allPeripheralIdentifiers)
-        return NSData()
+        let data = NSMutableData()
+        for roomDataObj in collections {
+            let roomData = roomDataObj as RoomTrainingDataCollection
+            let rawRoomData = roomData.trainingDataWithColumns(allPeripheralIdentifiers)
+            data.appendData(rawRoomData)
+        }
+        return data
     }
     
     //Mark: private methods

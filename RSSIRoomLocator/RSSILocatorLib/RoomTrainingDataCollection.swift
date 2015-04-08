@@ -35,22 +35,31 @@
     func trainingDataWithColumns(peripheralIdentifierColumns:[String]) -> NSData {
         let numColumns = peripheralIdentifierColumns.count * 1
         let numRows = collectedData.count
-        let dataSize = numColumns * numRows
-        let data = NSMutableData(length: dataSize)
+        let dataSize = numColumns * numRows * sizeof(Float)
+        let data = NSMutableData(length: dataSize )
+        let bytes = UnsafeMutablePointer<RSSIValue>(data!.bytes)
         let columns = peripheralIdentifierColumns as NSArray
-        let rows = collectedData as NSArray
-        columns.rac_sequence.map {
-            (obj:AnyObject!) -> AnyObject! in
-            let peripheralId = obj as String
-            return rows.rac_sequence.map{
-                (obj:AnyObject) -> AnyObject! in
-                let sample = obj as RSSISample
-                if sample.peripheralIdentifier == peripheralId {
-                    return sample.rssiValue
+        for (var row = 0; row < numRows; row++) {
+            let currentSample = collectedData[row]
+            for (var column = 0; column < numColumns; column++) {
+                var value: Float = 0.0
+                let sampleIdentifier = currentSample.peripheralIdentifier
+                if column == 0 {
+                    value = Float(roomIndex)
                 } else {
-                    return kMissingValue
+                    let columnPeripheralIdentifier:String = peripheralIdentifierColumns[column - 1]
+                    if columnPeripheralIdentifier == sampleIdentifier {
+                        value = currentSample.rssiValue
+                    } else if row == 0 {
+                        value = kMissingValue
+                    } else {
+                        value = bytes[(row - 1) * column]
+                    }
                 }
-            }!
+                print("\(value) ")
+                bytes[row * column] = value
+            }
+            print("\n")
         }
         return data!
     }
