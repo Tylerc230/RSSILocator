@@ -15,10 +15,21 @@ import ReactiveCocoa
     private var currentCollection:RoomTrainingDataCollection? = nil
     private let collections = NSMutableSet()
     private var centralManager: CBCentralManager! = nil
+    static let kTrainingDataPath = "training.dat"
     
     override init() {
         super.init()
         centralManager = CBCentralManager(delegate: self, queue: dispatch_get_main_queue())
+    }
+    
+    func saveToDisk() {
+        let data = trainingDataForSamples()
+        let columns = peripheralIdentifiers()
+        let trainingData = ["data":data, "columns":columns] as NSDictionary
+        var paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+        var path = paths.stringByAppendingPathComponent(RSSIDataTrainer.kTrainingDataPath)
+        trainingData.writeToFile(path, atomically: true)
+        
     }
     
     public func startCollectingDataForRoom(room:Int) {
@@ -32,7 +43,6 @@ import ReactiveCocoa
         if let currentCollection = currentCollection {
             collections.addObject(currentCollection)
         }
-        trainingDataForSamples()
     }
     
     public func cancelCurrentCollection() {
@@ -40,7 +50,7 @@ import ReactiveCocoa
     }
     
     public func trainingDataForSamples() -> NSData {
-        let allPeripheralIdentifiers = collectPeripheralIdentifiers()
+        let allPeripheralIdentifiers = peripheralIdentifiers()
         let numColums = allPeripheralIdentifiers.count
         let data = NSMutableData()
         for roomDataObj in collections {
@@ -64,11 +74,7 @@ import ReactiveCocoa
         }
     }
     
-    private func stopAdvertisingStream() {
-        centralManager.stopScan()
-    }
-    
-    private func collectPeripheralIdentifiers() -> [String] {
+    func peripheralIdentifiers() -> [String] {
         let identifiers = NSMutableSet()
         for collection in collections {
             if let collection = collection as? RoomTrainingDataCollection {
@@ -78,6 +84,11 @@ import ReactiveCocoa
         let identifierArray = identifiers.allObjects as! [String]
         return identifierArray.sorted(<)
     }
+    
+    private func stopAdvertisingStream() {
+        centralManager.stopScan()
+    }
+    
 }
 
 extension RSSIDataTrainer: CBCentralManagerDelegate {

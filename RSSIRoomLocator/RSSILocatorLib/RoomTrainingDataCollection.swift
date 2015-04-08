@@ -11,6 +11,9 @@
     var latestRSSIValues:RSSISample? = nil
     let roomIndex:Int
     private var collectedData = [RSSISample]()
+    var hasData:Bool {
+        return collectedData.count > 0
+    }
     
     init(roomIndex:Int) {
         self.roomIndex = roomIndex
@@ -24,10 +27,10 @@
         }
     }
     
-    func allPeripheralIds() -> NSSet {
-        let peripheralIds = NSMutableSet()
+    func allPeripheralIds() -> Set<String> {
+        var peripheralIds = Set<String>()
         for sample in collectedData {
-            peripheralIds.addObject(sample.peripheralIdentifier)
+            peripheralIds.insert(sample.peripheralIdentifier)
         }
         return peripheralIds
     }
@@ -56,10 +59,8 @@
                         value = bytes[(row - 1) * column]
                     }
                 }
-                print("\(value) ")
                 bytes[row * column] = value
             }
-            print("\n")
         }
         return data!
     }

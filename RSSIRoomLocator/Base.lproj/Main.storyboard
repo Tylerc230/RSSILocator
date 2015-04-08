@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hbt-CL-ZHp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7528.3" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hbt-CL-ZHp">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7518.3"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--First-->
@@ -112,13 +113,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ai8-3q-B7b">
-                                <rect key="frame" x="135" y="118" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ai8-3q-B7b">
+                                <rect key="frame" x="112" y="118" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="32r-Rl-5qt">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="32r-Rl-5qt">
                                 <rect key="frame" x="0.0" y="280" width="611" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -135,11 +136,11 @@
                                     <outlet property="delegate" destination="Ee5-mp-Lh0" id="g1z-Te-p4p"/>
                                 </connections>
                             </tableView>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Eue-U3-V2P">
-                                <rect key="frame" x="23" y="114" width="94" height="29"/>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Eue-U3-V2P">
+                                <rect key="frame" x="0.0" y="114" width="94" height="29"/>
                             </stepper>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bsz-ie-91G">
-                                <rect key="frame" x="309" y="118" width="122" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bsz-ie-91G">
+                                <rect key="frame" x="0.0" y="173" width="94" height="30"/>
                                 <state key="normal" title="Save data">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -149,6 +150,19 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Bsz-ie-91G" firstAttribute="top" secondItem="Eue-U3-V2P" secondAttribute="bottom" constant="30" id="89K-GA-VdN"/>
+                            <constraint firstItem="Bsz-ie-91G" firstAttribute="width" secondItem="Eue-U3-V2P" secondAttribute="width" id="O8o-1e-bxn"/>
+                            <constraint firstItem="Eue-U3-V2P" firstAttribute="top" secondItem="dQJ-4X-A3j" secondAttribute="bottom" constant="50" id="emV-xK-vvp"/>
+                            <constraint firstItem="Bsz-ie-91G" firstAttribute="leading" secondItem="Eue-U3-V2P" secondAttribute="leading" id="ezt-M0-zi7"/>
+                            <constraint firstItem="Bsz-ie-91G" firstAttribute="leading" secondItem="32r-Rl-5qt" secondAttribute="leading" id="gpJ-AD-pAt"/>
+                            <constraint firstItem="Eue-U3-V2P" firstAttribute="centerY" secondItem="ai8-3q-B7b" secondAttribute="centerY" id="lUp-uJ-Jbm"/>
+                            <constraint firstItem="Bsz-ie-91G" firstAttribute="leading" secondItem="mZ9-5P-vDL" secondAttribute="leading" id="qFK-vM-BcL"/>
+                            <constraint firstItem="32r-Rl-5qt" firstAttribute="top" secondItem="Bsz-ie-91G" secondAttribute="bottom" constant="77" id="s85-CL-Lw4"/>
+                            <constraint firstAttribute="bottom" secondItem="32r-Rl-5qt" secondAttribute="bottom" constant="20" symbolic="YES" id="sOl-16-0qW"/>
+                            <constraint firstItem="ai8-3q-B7b" firstAttribute="leading" secondItem="Eue-U3-V2P" secondAttribute="trailing" constant="18" id="wki-RV-0h3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="32r-Rl-5qt" secondAttribute="trailing" constant="-27" id="yaa-sb-s50"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Uol-r4-8dL">
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="PIk-bY-cQW">

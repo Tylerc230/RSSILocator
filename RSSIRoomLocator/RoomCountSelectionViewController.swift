@@ -22,7 +22,7 @@ class RoomCountSelectionViewController: UIViewController {
     }
     
     @IBAction func saveTrainingData() {
-        trainer.trainingDataForSamples()
+        trainer.saveToDisk()
     }
     
     private func initUI() {
