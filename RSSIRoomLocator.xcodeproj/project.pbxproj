@@ -21,6 +21,7 @@
 		7072EE681AC8FB2E002F2F29 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7072EE661AC8FB2E002F2F29 /* LaunchScreen.xib */; };
 		7072EE741AC8FB2E002F2F29 /* RSSIRoomLocatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7072EE731AC8FB2E002F2F29 /* RSSIRoomLocatorTests.swift */; };
 		70E251541AD4CE73002C9D64 /* CocoaLumberjack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E251531AD4CE73002C9D64 /* CocoaLumberjack.swift */; };
+		70E251561AD4EAEC002C9D64 /* TrainingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E251551AD4EAEC002C9D64 /* TrainingData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		7072EE721AC8FB2E002F2F29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7072EE731AC8FB2E002F2F29 /* RSSIRoomLocatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSIRoomLocatorTests.swift; sourceTree = "<group>"; };
 		70E251531AD4CE73002C9D64 /* CocoaLumberjack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocoaLumberjack.swift; sourceTree = "<group>"; };
+		70E251551AD4EAEC002C9D64 /* TrainingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingData.swift; sourceTree = "<group>"; };
 		ED13385D1E2AF88DD2086575 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA8A0FAB30DFDFD2E8752DEF /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -92,6 +94,7 @@
 				70361ADB1ACE50BE00D9C22C /* RoomTrainingDataCollection.swift */,
 				70361ADD1AD1B3A200D9C22C /* RSSIDataTrainer.swift */,
 				70361AE31AD1FC4D00D9C22C /* RSSISample.swift */,
+				70E251551AD4EAEC002C9D64 /* TrainingData.swift */,
 			);
 			path = RSSILocatorLib;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				70361ADC1ACE50BE00D9C22C /* RoomTrainingDataCollection.swift in Sources */,
 				70361AE41AD1FC4D00D9C22C /* RSSISample.swift in Sources */,
 				7072EE5E1AC8FB2E002F2F29 /* FirstViewController.swift in Sources */,
+				70E251561AD4EAEC002C9D64 /* TrainingData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

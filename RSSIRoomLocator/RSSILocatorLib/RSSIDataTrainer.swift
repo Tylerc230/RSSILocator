@@ -22,13 +22,10 @@ import ReactiveCocoa
         centralManager = CBCentralManager(delegate: self, queue: dispatch_get_main_queue())
     }
     
-    func saveToDisk() {
+    func trainingData() -> TrainingData {
         let data = trainingDataForSamples()
         let columns = peripheralIdentifiers()
-        let trainingData = ["data":data, "columns":columns] as NSDictionary
-        var paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
-        var path = paths.stringByAppendingPathComponent(RSSIDataTrainer.kTrainingDataPath)
-        trainingData.writeToFile(path, atomically: true)
+        return TrainingData(columns: columns, data: data)
         
     }
     

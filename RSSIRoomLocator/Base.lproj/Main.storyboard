@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7528.3" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hbt-CL-ZHp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hbt-CL-ZHp">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7518.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -204,7 +204,7 @@
                     <navigationItem key="navigationItem" id="QcJ-x8-Foj">
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="zBy-uR-6qL">
                             <connections>
-                                <segue destination="lkE-rh-khB" kind="presentation" modalTransitionStyle="flipHorizontal" id="9GY-Go-av8"/>
+                                <segue destination="lkE-rh-khB" kind="presentation" identifier="TrainingDataSegue" modalTransitionStyle="flipHorizontal" id="9GY-Go-av8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
