@@ -9,9 +9,17 @@
 import Foundation
 import UIKit
 
-class TrainingData: NSObject, NSCoding {
+class TrainingData: NSObject, NSCoding, DebugPrintable {
     let data:NSData
     let columns:[String]
+    var numColumns:Int {
+        return columns.count + 1
+    }
+    
+    var numRows:Int {
+        let floatCount = data.length/sizeof(Float)
+        return floatCount/numColumns
+    }
     
     init(columns:[String], data:NSData) {
         self.columns = columns
@@ -54,4 +62,21 @@ class TrainingData: NSObject, NSCoding {
         var path = paths.stringByAppendingPathComponent(RSSIDataTrainer.kTrainingDataPath)
         return path
     }
+    
+    override var debugDescription:String {
+        var output = ""
+        let numCols = numColumns
+        let numRows = self.numRows
+        let bufferPointer = UnsafeBufferPointer<Float>(start: UnsafePointer<Float>(data.bytes), count: numCols * numRows)
+        for row in 0..<numRows {
+            for col in 0..<numCols {
+                let value = bufferPointer[row * numCols + col]
+                output += "\(value), "
+            }
+            output += "\n"
+        }
+        return output
+    }
+    
+    
 }

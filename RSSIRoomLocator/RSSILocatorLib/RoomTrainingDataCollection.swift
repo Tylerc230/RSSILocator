@@ -36,7 +36,7 @@
     }
     
     func trainingDataWithColumns(peripheralIdentifierColumns:[String]) -> NSData {
-        let numColumns = peripheralIdentifierColumns.count * 1
+        let numColumns = peripheralIdentifierColumns.count + 1
         let numRows = collectedData.count
         let dataSize = numColumns * numRows * sizeof(Float)
         let data = NSMutableData(length: dataSize )
@@ -56,10 +56,11 @@
                     } else if row == 0 {
                         value = kMissingValue
                     } else {
-                        value = bytes[(row - 1) * column]
+                        let lastRow = row - 1
+                        value = bytes[lastRow * numColumns + column]
                     }
                 }
-                bytes[row * column] = value
+                bytes[row * numColumns + column] = value
             }
         }
         return data!

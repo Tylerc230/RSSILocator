@@ -7,6 +7,7 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.0.0):
     - CocoaLumberjack/Default
+  - OpenCV (2.4.9.1)
   - ReactiveCocoa (2.4.7):
     - ReactiveCocoa/UI (= 2.4.7)
   - ReactiveCocoa/Core (2.4.7):
@@ -17,10 +18,12 @@ PODS:
 
 DEPENDENCIES:
   - CocoaLumberjack (= 2.0.0)
+  - OpenCV (= 2.4.9.1)
   - ReactiveCocoa (= 2.4.7)
 
 SPEC CHECKSUMS:
   CocoaLumberjack: a6f77d987d65dc7ba86b0f84db7d0b9084f77bcb
+  OpenCV: 6a30a4f71e5b5a879e6f290acc37f1b5115d5fa6
   ReactiveCocoa: eb38dee0a0e698f73a9b25e5c1faea2bb4c79240
 
 COCOAPODS: 0.36.3

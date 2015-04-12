@@ -9,6 +9,14 @@
 import UIKit
 
 class FirstViewController: UIViewController {
+    var roomPredictionEngine:RoomPredictionEngine? = nil
+    required init(coder aDecoder: NSCoder) {
+        if TrainingData.hasTrainingData() {
+            let trainingData = TrainingData.readFromDisk()
+            roomPredictionEngine = RoomPredictionEngine(trainingData: trainingData)
+        }
+        super.init(coder: aDecoder)
+    }
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
