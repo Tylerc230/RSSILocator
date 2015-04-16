@@ -25,6 +25,10 @@ class FirstViewController: UIViewController {
         }
     }
     
+    @IBAction func startPredictions() {
+        roomPredictionEngine?.startPredicting()
+    }
+    
     func showDataTrainer() {
         tabBarController!.performSegueWithIdentifier("TrainingDataSegue", sender: self)
     }

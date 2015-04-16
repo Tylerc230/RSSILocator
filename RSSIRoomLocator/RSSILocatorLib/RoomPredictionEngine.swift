@@ -11,10 +11,18 @@ import Foundation
 class RoomPredictionEngine {
     private let trainingData:TrainingData
     private let predictionAlgorithm = PredictionAlgorithm()
+    private let rssiSource = RSSISource()
     init(trainingData:TrainingData) {
         self.trainingData = trainingData
         debugPrintln(trainingData)
         predictionAlgorithm.train(trainingData.data, numFeatures: Int32(trainingData.columns.count), filterSize: 3)
+    }
+    
+    func startPredicting() {
+        let stream = rssiSource.startAdvertisingStream()
+        stream.subscribeNext { (obj:AnyObject!) in
+            DDLogInfo("Next value \(obj)")
+        }
     }
     
     func predict(latestSample:RSSISample) -> Int {
