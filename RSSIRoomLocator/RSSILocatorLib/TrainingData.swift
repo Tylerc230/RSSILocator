@@ -77,6 +77,4 @@ class TrainingData: NSObject, NSCoding, DebugPrintable {
         }
         return output
     }
-    
-    
 }

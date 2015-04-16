@@ -13,7 +13,7 @@ let kMissingValue:Float = -1000.0
 
 @objc class RSSISample: DebugPrintable {
     let peripheralIdentifier:String
-    let rssiValue:RSSIValue
+    var rssiValue:RSSIValue
     let timestamp:NSDate
     init(peripheralIdentifier:String, rssiValue:RSSIValue) {
         self.peripheralIdentifier = peripheralIdentifier
