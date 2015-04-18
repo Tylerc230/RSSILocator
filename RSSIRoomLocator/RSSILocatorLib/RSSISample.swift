@@ -11,14 +11,18 @@ typealias RSSIValue = Float
 let kMissingValue:Float = -1000.0
 
 
-@objc class RSSISample: DebugPrintable {
+class RSSISample: DebugPrintable {
     let peripheralIdentifier:String
     var rssiValue:RSSIValue
-    let timestamp:NSDate
+    private let timestamp:NSDate
     init(peripheralIdentifier:String, rssiValue:RSSIValue) {
         self.peripheralIdentifier = peripheralIdentifier
         self.rssiValue = rssiValue
         self.timestamp = NSDate()
+    }
+    
+    func getTimestamp() -> NSDate {
+        return timestamp
     }
     
     var debugDescription:String {

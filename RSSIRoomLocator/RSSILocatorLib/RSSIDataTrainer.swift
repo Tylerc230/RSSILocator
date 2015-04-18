@@ -26,7 +26,9 @@ import ReactiveCocoa
     public func startCollectingDataForRoom(room:Int) {
         currentCollection = RoomTrainingDataCollection(roomIndex: room)
         let stream = rssiSource.startAdvertisingStream()
-        stream ~> RAC(currentCollection, "latestRSSIValues")
+        stream.subscribeNext { (value:AnyObject!) -> Void in
+            currentCollection?.addRSSISample(value as! RSSISample)
+        }
     }
     
     public func finishCollectiongData() {

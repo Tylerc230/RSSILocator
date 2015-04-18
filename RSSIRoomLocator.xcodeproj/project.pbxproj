@@ -15,13 +15,23 @@
 		70361ADC1ACE50BE00D9C22C /* RoomTrainingDataCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70361ADB1ACE50BE00D9C22C /* RoomTrainingDataCollection.swift */; };
 		70361ADE1AD1B3A200D9C22C /* RSSIDataTrainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70361ADD1AD1B3A200D9C22C /* RSSIDataTrainer.swift */; };
 		70361AE41AD1FC4D00D9C22C /* RSSISample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70361AE31AD1FC4D00D9C22C /* RSSISample.swift */; };
+		7064231D1AE2024F001E1852 /* RoomTrainingDataCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7064231C1AE2024F001E1852 /* RoomTrainingDataCollectionTests.swift */; };
+		7064231E1AE2032D001E1852 /* RoomTrainingDataCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70361ADB1ACE50BE00D9C22C /* RoomTrainingDataCollection.swift */; };
+		7064231F1AE20369001E1852 /* RSSISample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70361AE31AD1FC4D00D9C22C /* RSSISample.swift */; };
+		706423201AE20502001E1852 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8A0FAB30DFDFD2E8752DEF /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		706423211AE20564001E1852 /* CocoaLumberjack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E251531AD4CE73002C9D64 /* CocoaLumberjack.swift */; };
+		706423221AE20568001E1852 /* RSSIDataTrainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70361ADD1AD1B3A200D9C22C /* RSSIDataTrainer.swift */; };
+		706423231AE20570001E1852 /* TrainingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E251551AD4EAEC002C9D64 /* TrainingData.swift */; };
+		706423241AE20576001E1852 /* RoomPredictionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7008831C1ADAF79300CC8204 /* RoomPredictionEngine.swift */; };
+		706423251AE2057A001E1852 /* PredictionAlgorithm.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7008831F1ADAF84300CC8204 /* PredictionAlgorithm.mm */; };
+		706423261AE2057D001E1852 /* RSSISource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EDE07F1ADF849300AE2111 /* RSSISource.swift */; };
+		706423271AE2058A001E1852 /* RAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70361AD81ACE4BF900D9C22C /* RAC.swift */; };
 		7072EE5C1AC8FB2E002F2F29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7072EE5B1AC8FB2E002F2F29 /* AppDelegate.swift */; };
 		7072EE5E1AC8FB2E002F2F29 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7072EE5D1AC8FB2E002F2F29 /* FirstViewController.swift */; };
 		7072EE601AC8FB2E002F2F29 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7072EE5F1AC8FB2E002F2F29 /* SecondViewController.swift */; };
 		7072EE631AC8FB2E002F2F29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7072EE611AC8FB2E002F2F29 /* Main.storyboard */; };
 		7072EE651AC8FB2E002F2F29 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7072EE641AC8FB2E002F2F29 /* Images.xcassets */; };
 		7072EE681AC8FB2E002F2F29 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7072EE661AC8FB2E002F2F29 /* LaunchScreen.xib */; };
-		7072EE741AC8FB2E002F2F29 /* RSSIRoomLocatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7072EE731AC8FB2E002F2F29 /* RSSIRoomLocatorTests.swift */; };
 		70E251541AD4CE73002C9D64 /* CocoaLumberjack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E251531AD4CE73002C9D64 /* CocoaLumberjack.swift */; };
 		70E251561AD4EAEC002C9D64 /* TrainingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E251551AD4EAEC002C9D64 /* TrainingData.swift */; };
 		70EDE0801ADF849300AE2111 /* RSSISource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EDE07F1ADF849300AE2111 /* RSSISource.swift */; };
@@ -48,6 +58,7 @@
 		70361ADB1ACE50BE00D9C22C /* RoomTrainingDataCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomTrainingDataCollection.swift; sourceTree = "<group>"; };
 		70361ADD1AD1B3A200D9C22C /* RSSIDataTrainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSIDataTrainer.swift; sourceTree = "<group>"; };
 		70361AE31AD1FC4D00D9C22C /* RSSISample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSISample.swift; sourceTree = "<group>"; };
+		7064231C1AE2024F001E1852 /* RoomTrainingDataCollectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomTrainingDataCollectionTests.swift; sourceTree = "<group>"; };
 		7072EE561AC8FB2E002F2F29 /* RSSIRoomLocator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSIRoomLocator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7072EE5A1AC8FB2E002F2F29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7072EE5B1AC8FB2E002F2F29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,7 +69,6 @@
 		7072EE671AC8FB2E002F2F29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7072EE6D1AC8FB2E002F2F29 /* RSSIRoomLocatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RSSIRoomLocatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7072EE721AC8FB2E002F2F29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7072EE731AC8FB2E002F2F29 /* RSSIRoomLocatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSIRoomLocatorTests.swift; sourceTree = "<group>"; };
 		70E251531AD4CE73002C9D64 /* CocoaLumberjack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocoaLumberjack.swift; sourceTree = "<group>"; };
 		70E251551AD4EAEC002C9D64 /* TrainingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingData.swift; sourceTree = "<group>"; };
 		70EDE07F1ADF849300AE2111 /* RSSISource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSISource.swift; sourceTree = "<group>"; };
@@ -79,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				706423201AE20502001E1852 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,8 +170,8 @@
 		7072EE701AC8FB2E002F2F29 /* RSSIRoomLocatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				7072EE731AC8FB2E002F2F29 /* RSSIRoomLocatorTests.swift */,
 				7072EE711AC8FB2E002F2F29 /* Supporting Files */,
+				7064231C1AE2024F001E1852 /* RoomTrainingDataCollectionTests.swift */,
 			);
 			path = RSSIRoomLocatorTests;
 			sourceTree = "<group>";
@@ -352,7 +363,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7072EE741AC8FB2E002F2F29 /* RSSIRoomLocatorTests.swift in Sources */,
+				706423221AE20568001E1852 /* RSSIDataTrainer.swift in Sources */,
+				706423241AE20576001E1852 /* RoomPredictionEngine.swift in Sources */,
+				7064231D1AE2024F001E1852 /* RoomTrainingDataCollectionTests.swift in Sources */,
+				706423271AE2058A001E1852 /* RAC.swift in Sources */,
+				706423211AE20564001E1852 /* CocoaLumberjack.swift in Sources */,
+				706423261AE2057D001E1852 /* RSSISource.swift in Sources */,
+				7064231F1AE20369001E1852 /* RSSISample.swift in Sources */,
+				706423231AE20570001E1852 /* TrainingData.swift in Sources */,
+				706423251AE2057A001E1852 /* PredictionAlgorithm.mm in Sources */,
+				7064231E1AE2032D001E1852 /* RoomTrainingDataCollection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +444,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "RSSIRoomLocator/RSSIRoomLocator-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -459,6 +480,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "RSSIRoomLocator/RSSIRoomLocator-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -471,7 +493,6 @@
 				INFOPLIST_FILE = RSSIRoomLocator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "RSSIRoomLocator/RSSIRoomLocator-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -483,12 +504,12 @@
 				INFOPLIST_FILE = RSSIRoomLocator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "RSSIRoomLocator/RSSIRoomLocator-Bridging-Header.h";
 			};
 			name = Release;
 		};
 		7072EE7B1AC8FB2E002F2F29 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E326E6382FF5BDF6E5B7D1D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -508,6 +529,7 @@
 		};
 		7072EE7C1AC8FB2E002F2F29 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED13385D1E2AF88DD2086575 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

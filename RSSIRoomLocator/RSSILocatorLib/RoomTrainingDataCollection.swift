@@ -5,10 +5,8 @@
 //  Created by Tyler Casselman on 4/2/15.
 //  Copyright (c) 2015 Casselman Consulting. All rights reserved.
 //
-
 @objc class RoomTrainingDataCollection: NSObject {
     let kSampleExpiration = 1.0
-    var latestRSSIValues:RSSISample? = nil
     let roomIndex:Int
     private var collectedData = [RSSISample]()
     var hasData:Bool {
@@ -18,13 +16,11 @@
     init(roomIndex:Int) {
         self.roomIndex = roomIndex
         super.init()
-        RACObserve(self, "latestRSSIValues").subscribeNext {
-            [unowned self] (value) in
-            if let latestValues = value as? RSSISample {
-                DDLogInfo("append values \(latestValues)")
-                self.collectedData.append(latestValues)
-            }
-        }
+    }
+    
+    func addRSSISample(value:RSSISample) {
+        DDLogInfo("append values \(value)")
+        self.collectedData.append(value)
     }
     
     func allPeripheralIds() -> Set<String> {
@@ -53,15 +49,15 @@
                 } else {
                     let columnPeripheralIdentifier = peripheralIdentifierColumns[column - 1]
                     let lastSample = lastSampleForUUID[columnPeripheralIdentifier]
-                    if columnPeripheralIdentifier == sampleIdentifier {
-                        if currentSample.rssiValue > 0 {
-                            currentSample.rssiValue = lastSample?.rssiValue ?? kMissingValue
+                    if columnPeripheralIdentifier == sampleIdentifier {//If the sample goes in this column
+                        if currentSample.rssiValue > 0 { //If the value is 127
+                            currentSample.rssiValue = lastSample?.rssiValue ?? kMissingValue //Use the last value if there is one or missing
                         }
                         value = currentSample.rssiValue
                         lastSampleForUUID[currentSample.peripheralIdentifier] = currentSample
                     } else {
                         if let lastSample = lastSample {
-                            if lastSample.timestamp.timeIntervalSinceNow > kSampleExpiration {
+                            if fabs(lastSample.getTimestamp().timeIntervalSinceNow) > kSampleExpiration {
                                 value = kMissingValue
                                 lastSampleForUUID.removeValueForKey(columnPeripheralIdentifier)
                             } else {
