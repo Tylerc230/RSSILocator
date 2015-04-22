@@ -32,10 +32,9 @@ class RoomTrainingDataCollection {
     func trainingDataWithColumns(peripheralIdentifierColumns:[String]) -> NSData {
         let numColumns = peripheralIdentifierColumns.count
         let numRows = collectedData.count
-        let dataSize = numColumns * numRows * sizeof(Float)
-        let data = NSMutableData(length: dataSize)!
+        let matrix = Matrix<RSSIValue>(rows: numRows, columns: numColumns)
         let matrixGenerator = MatrixGenerator()
-        matrixGenerator.fillMatrix(data, withSamples: collectedData, featureOrder: peripheralIdentifierColumns)
-        return data
+        matrixGenerator.fillMatrix(matrix, withSamples: collectedData, featureOrder: peripheralIdentifierColumns)
+        return matrix.data
     }
 }

@@ -32,6 +32,8 @@
 		7072EE631AC8FB2E002F2F29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7072EE611AC8FB2E002F2F29 /* Main.storyboard */; };
 		7072EE651AC8FB2E002F2F29 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7072EE641AC8FB2E002F2F29 /* Images.xcassets */; };
 		7072EE681AC8FB2E002F2F29 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7072EE661AC8FB2E002F2F29 /* LaunchScreen.xib */; };
+		708AC5471AE769E400457D3F /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708AC5461AE769E400457D3F /* Matrix.swift */; };
+		708AC5481AE769E400457D3F /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708AC5461AE769E400457D3F /* Matrix.swift */; };
 		70E251541AD4CE73002C9D64 /* CocoaLumberjack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E251531AD4CE73002C9D64 /* CocoaLumberjack.swift */; };
 		70E251561AD4EAEC002C9D64 /* TrainingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E251551AD4EAEC002C9D64 /* TrainingData.swift */; };
 		70EDE0801ADF849300AE2111 /* RSSISource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EDE07F1ADF849300AE2111 /* RSSISource.swift */; };
@@ -71,6 +73,7 @@
 		7072EE671AC8FB2E002F2F29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7072EE6D1AC8FB2E002F2F29 /* RSSIRoomLocatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RSSIRoomLocatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7072EE721AC8FB2E002F2F29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		708AC5461AE769E400457D3F /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		70E251531AD4CE73002C9D64 /* CocoaLumberjack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocoaLumberjack.swift; sourceTree = "<group>"; };
 		70E251551AD4EAEC002C9D64 /* TrainingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingData.swift; sourceTree = "<group>"; };
 		70EDE07F1ADF849300AE2111 /* RSSISource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSISource.swift; sourceTree = "<group>"; };
@@ -121,6 +124,7 @@
 				7008831F1ADAF84300CC8204 /* PredictionAlgorithm.mm */,
 				70EDE07F1ADF849300AE2111 /* RSSISource.swift */,
 				70EE445B1AE32D840021F81F /* MatrixGenerator.swift */,
+				708AC5461AE769E400457D3F /* Matrix.swift */,
 			);
 			path = RSSILocatorLib;
 			sourceTree = "<group>";
@@ -358,6 +362,7 @@
 				70361ADE1AD1B3A200D9C22C /* RSSIDataTrainer.swift in Sources */,
 				70361ADC1ACE50BE00D9C22C /* RoomTrainingDataCollection.swift in Sources */,
 				7008831D1ADAF79300CC8204 /* RoomPredictionEngine.swift in Sources */,
+				708AC5471AE769E400457D3F /* Matrix.swift in Sources */,
 				70361AE41AD1FC4D00D9C22C /* RSSISample.swift in Sources */,
 				7072EE5E1AC8FB2E002F2F29 /* FirstViewController.swift in Sources */,
 				70E251561AD4EAEC002C9D64 /* TrainingData.swift in Sources */,
@@ -376,6 +381,7 @@
 				706423261AE2057D001E1852 /* RSSISource.swift in Sources */,
 				7064231F1AE20369001E1852 /* RSSISample.swift in Sources */,
 				706423231AE20570001E1852 /* TrainingData.swift in Sources */,
+				708AC5481AE769E400457D3F /* Matrix.swift in Sources */,
 				70EE445D1AE32D840021F81F /* MatrixGenerator.swift in Sources */,
 				706423251AE2057A001E1852 /* PredictionAlgorithm.mm in Sources */,
 				7064231E1AE2032D001E1852 /* RoomTrainingDataCollection.swift in Sources */,

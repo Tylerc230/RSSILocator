@@ -11,10 +11,9 @@ class MatrixGenerator {
     let kSampleExpiration = 1.0
     var lastSampleForUUID = [String:RSSISample]()
     
-    func fillMatrix(matrix:NSMutableData,  withSamples samples:[RSSISample], featureOrder:[String]) {
+    func fillMatrix(matrix:Matrix<RSSIValue>,  withSamples samples:[RSSISample], featureOrder:[String]) {
         let numColumns = featureOrder.count
         let numRows = samples.count
-        let bytes = UnsafeMutablePointer<RSSIValue>(matrix.bytes)
         for row in 0..<numRows {
             let rowSample = samples[row]
             pruneExpiredSamples(rowSample.getTimestamp())
@@ -30,7 +29,7 @@ class MatrixGenerator {
                         cellValue = kMissingValue
                     }
                 }
-                bytes[row * numColumns + column] = cellValue
+                matrix[row, column] = cellValue
             }
             lastSampleForUUID[rowSample.peripheralIdentifier] = rowSample
         }
