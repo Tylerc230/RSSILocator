@@ -47,12 +47,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3jc-Cd-YLW" secondAttribute="trailing" constant="449" id="Sq7-14-IJk"/>
                             <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
                             <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
-                            <constraint firstItem="3jc-Cd-YLW" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="64" id="vtV-dV-KaR"/>
-                            <constraint firstItem="3jc-Cd-YLW" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="73" id="w3i-8H-aVP"/>
+                            <constraint firstItem="3jc-Cd-YLW" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="73" id="iJS-so-Avl"/>
+                            <constraint firstItem="3jc-Cd-YLW" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="64" id="jAP-l3-QoE"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>

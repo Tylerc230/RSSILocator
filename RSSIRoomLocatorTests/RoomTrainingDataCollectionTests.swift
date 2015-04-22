@@ -32,9 +32,9 @@ class RoomTrainingDataCollectionTests: XCTestCase {
         
         let trainingColumns = ["ABCD", "EFGH", "IJKL"]
         let expectedValues =    [
-            [1.0, samples[0].rssiValue, kMissingValue, kMissingValue],
-            [1.0, samples[0].rssiValue, samples[1].rssiValue, kMissingValue],
-            [1.0, samples[0].rssiValue, samples[1].rssiValue, samples[2].rssiValue]
+            [samples[0].rssiValue, kMissingValue, kMissingValue],
+            [samples[0].rssiValue, samples[1].rssiValue, kMissingValue],
+            [samples[0].rssiValue, samples[1].rssiValue, samples[2].rssiValue]
         ]
         trainWithSamples(samples, columns: trainingColumns, expectedValues: expectedValues)
     }
@@ -43,8 +43,8 @@ class RoomTrainingDataCollectionTests: XCTestCase {
         let samples = [ RSSISample(peripheralIdentifier: "ABCD", rssiValue: -30),
                         RSSISample(peripheralIdentifier: "ABCD", rssiValue: 127.0)]
         let expectedValues:[[RSSIValue]] = [
-            [1.0, -30.0],
-            [1.0, -30.0]
+            [-30.0],
+            [-30.0]
         ]
         trainWithSamples(samples, columns: ["ABCD"], expectedValues: expectedValues)
     }
@@ -55,8 +55,8 @@ class RoomTrainingDataCollectionTests: XCTestCase {
             RSSISample(peripheralIdentifier: "EFGH", rssiValue: -40.0)
         ]
         let expectedValues = [
-            [1.0, -30.0, kMissingValue],
-            [1.0, kMissingValue, -40.0]
+            [-30.0, kMissingValue],
+            [kMissingValue, -40.0]
         ]
         trainWithSamples(samples, columns: ["ABCD", "EFGH"], expectedValues: expectedValues)
     }
@@ -66,7 +66,7 @@ class RoomTrainingDataCollectionTests: XCTestCase {
             trainer.addRSSISample(sample)
         }
         let data = trainer.trainingDataWithColumns(columns)
-        XCTAssertEqual(data.length, samples.count * (columns.count + 1) * sizeof(RSSIValue), "Incorrect size")
+        XCTAssertEqual(data.length, samples.count * (columns.count) * sizeof(RSSIValue), "Incorrect size")
         let valueBuffer = ValueBuffer(data.bytes)
         let rowCount = expectedValues.count
         for row in 0..<rowCount {

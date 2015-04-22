@@ -35,6 +35,8 @@
 		70E251541AD4CE73002C9D64 /* CocoaLumberjack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E251531AD4CE73002C9D64 /* CocoaLumberjack.swift */; };
 		70E251561AD4EAEC002C9D64 /* TrainingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E251551AD4EAEC002C9D64 /* TrainingData.swift */; };
 		70EDE0801ADF849300AE2111 /* RSSISource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EDE07F1ADF849300AE2111 /* RSSISource.swift */; };
+		70EE445C1AE32D840021F81F /* MatrixGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EE445B1AE32D840021F81F /* MatrixGenerator.swift */; };
+		70EE445D1AE32D840021F81F /* MatrixGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EE445B1AE32D840021F81F /* MatrixGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,7 @@
 		70E251531AD4CE73002C9D64 /* CocoaLumberjack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocoaLumberjack.swift; sourceTree = "<group>"; };
 		70E251551AD4EAEC002C9D64 /* TrainingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingData.swift; sourceTree = "<group>"; };
 		70EDE07F1ADF849300AE2111 /* RSSISource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSISource.swift; sourceTree = "<group>"; };
+		70EE445B1AE32D840021F81F /* MatrixGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixGenerator.swift; sourceTree = "<group>"; };
 		ED13385D1E2AF88DD2086575 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA8A0FAB30DFDFD2E8752DEF /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -117,6 +120,7 @@
 				7008831E1ADAF84300CC8204 /* PredictionAlgorithm.h */,
 				7008831F1ADAF84300CC8204 /* PredictionAlgorithm.mm */,
 				70EDE07F1ADF849300AE2111 /* RSSISource.swift */,
+				70EE445B1AE32D840021F81F /* MatrixGenerator.swift */,
 			);
 			path = RSSILocatorLib;
 			sourceTree = "<group>";
@@ -347,6 +351,7 @@
 				70361AD91ACE4BF900D9C22C /* RAC.swift in Sources */,
 				70E251541AD4CE73002C9D64 /* CocoaLumberjack.swift in Sources */,
 				70361AD61ACE410800D9C22C /* RoomCountSelectionViewController.swift in Sources */,
+				70EE445C1AE32D840021F81F /* MatrixGenerator.swift in Sources */,
 				70EDE0801ADF849300AE2111 /* RSSISource.swift in Sources */,
 				7072EE601AC8FB2E002F2F29 /* SecondViewController.swift in Sources */,
 				7072EE5C1AC8FB2E002F2F29 /* AppDelegate.swift in Sources */,
@@ -371,6 +376,7 @@
 				706423261AE2057D001E1852 /* RSSISource.swift in Sources */,
 				7064231F1AE20369001E1852 /* RSSISample.swift in Sources */,
 				706423231AE20570001E1852 /* TrainingData.swift in Sources */,
+				70EE445D1AE32D840021F81F /* MatrixGenerator.swift in Sources */,
 				706423251AE2057A001E1852 /* PredictionAlgorithm.mm in Sources */,
 				7064231E1AE2032D001E1852 /* RoomTrainingDataCollection.swift in Sources */,
 			);
