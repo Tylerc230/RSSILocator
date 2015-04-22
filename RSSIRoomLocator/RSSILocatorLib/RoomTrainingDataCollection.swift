@@ -5,7 +5,7 @@
 //  Created by Tyler Casselman on 4/2/15.
 //  Copyright (c) 2015 Casselman Consulting. All rights reserved.
 //
-@objc class RoomTrainingDataCollection: NSObject {
+class RoomTrainingDataCollection {
     let roomIndex:Int
     private var collectedData = [RSSISample]()
     var hasData:Bool {
@@ -14,7 +14,6 @@
     
     init(roomIndex:Int) {
         self.roomIndex = roomIndex
-        super.init()
     }
     
     func addRSSISample(value:RSSISample) {
