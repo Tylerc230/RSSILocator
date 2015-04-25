@@ -29,12 +29,20 @@ class RoomTrainingDataCollection {
         return peripheralIds
     }
     
-    func trainingDataWithColumns(peripheralIdentifierColumns:[String]) -> NSData {
+    func trainingDataWithColumns(peripheralIdentifierColumns:[String]) -> Matrix<RSSIValue> {
         let numColumns = peripheralIdentifierColumns.count
         let numRows = collectedData.count
         let matrix = Matrix<RSSIValue>(rows: numRows, columns: numColumns)
         let matrixGenerator = MatrixGenerator()
         matrixGenerator.fillMatrix(matrix, withSamples: collectedData, featureOrder: peripheralIdentifierColumns)
-        return matrix.data
+        return matrix
+    }
+    
+    func labelData() -> Matrix<RSSIValue> {
+        let labelMatrix = Matrix<RSSIValue>(rows: collectedData.count, columns: 1)
+        for row in 0..<labelMatrix.rows {
+            labelMatrix[row, 0] = RSSIValue(roomIndex)
+        }
+        return labelMatrix
     }
 }

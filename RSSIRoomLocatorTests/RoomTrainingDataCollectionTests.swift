@@ -65,7 +65,7 @@ class RoomTrainingDataCollectionTests: XCTestCase {
         for sample in samples {
             trainer.addRSSISample(sample)
         }
-        let data = trainer.trainingDataWithColumns(columns)
+        let data = trainer.trainingDataWithColumns(columns).data
         XCTAssertEqual(data.length, samples.count * (columns.count) * sizeof(RSSIValue), "Incorrect size")
         let valueBuffer = ValueBuffer(data.bytes)
         let rowCount = expectedValues.count

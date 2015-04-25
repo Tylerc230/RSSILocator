@@ -17,9 +17,9 @@ import ReactiveCocoa
     static let kTrainingDataPath = "training.dat"
     
     func trainingData() -> TrainingData {
-        let data = trainingDataForSamples()
+        let (labelData, featureData) = trainingDataForSamples()
         let columns = peripheralIdentifiers()
-        return TrainingData(columns: columns, data: data)
+        return TrainingData(columns: columns, featureData:featureData, labelData:labelData)
         
     }
     
@@ -42,18 +42,20 @@ import ReactiveCocoa
         
     }
     
-    public func trainingDataForSamples() -> NSData {
+    public func trainingDataForSamples() -> (labelData:NSMutableData, featureData:NSMutableData) {
         let allPeripheralIdentifiers = peripheralIdentifiers()
         let numColums = allPeripheralIdentifiers.count
-        let data = NSMutableData()
+        let allFeatureData = NSMutableData()
+        let allLabelData = NSMutableData()
         for roomDataObj in collections {
             let roomData = roomDataObj as! RoomTrainingDataCollection
-            let rawRoomData = roomData.trainingDataWithColumns(allPeripheralIdentifiers)
-            data.appendData(rawRoomData)
+            let roomFeatureMatrix = roomData.trainingDataWithColumns(allPeripheralIdentifiers)
+            allFeatureData.appendData(roomFeatureMatrix.data)
+            let roomLabelMatrix = roomData.labelData()
+            allLabelData.appendData(roomLabelMatrix.data)
         }
-        return data
+        return (allLabelData, allFeatureData)
     }
-    
     
     func peripheralIdentifiers() -> [String] {
         let identifiers = NSMutableSet()

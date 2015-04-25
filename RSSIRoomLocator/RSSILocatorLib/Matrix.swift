@@ -9,9 +9,11 @@
 import Foundation
 class Matrix<T> {
     let data:NSMutableData
-    private let columns:Int
+    let columns:Int
+    let rows:Int
     private let buffer:UnsafeMutablePointer<T>
     init(rows:Int, columns:Int) {
+        self.rows = rows
         self.columns = columns
         let bufferSize = rows * columns * sizeof(T)
         data = NSMutableData(length: bufferSize)!

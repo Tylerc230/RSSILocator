@@ -10,30 +10,35 @@ import Foundation
 import UIKit
 
 class TrainingData: NSObject, NSCoding, DebugPrintable {
-    let data:NSData
+    let labelData:NSMutableData
+    let featureData:NSMutableData
     let columns:[String]
+    
     var numColumns:Int {
-        return columns.count + 1
+        return columns.count
     }
     
     var numRows:Int {
-        let floatCount = data.length/sizeof(Float)
+        let floatCount = featureData.length/sizeof(RSSIValue)
         return floatCount/numColumns
     }
     
-    init(columns:[String], data:NSData) {
+    init(columns:[String], featureData:NSMutableData, labelData:NSMutableData) {
         self.columns = columns
-        self.data = data
+        self.featureData = featureData
+        self.labelData = labelData
     }
     
     required init(coder aDecoder: NSCoder) {
         columns = aDecoder.decodeObjectForKey("columns") as! [String]
-        data = aDecoder.decodeObjectForKey("data") as! NSData
+        featureData = aDecoder.decodeObjectForKey("featureData") as! NSMutableData
+        labelData = aDecoder.decodeObjectForKey("labelData") as! NSMutableData
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(data, forKey: "data")
+        aCoder.encodeObject(featureData, forKey: "featureData")
         aCoder.encodeObject(columns, forKey: "columns")
+        aCoder.encodeObject(labelData, forKey: "labelData")
     }
     
     func saveToDisk() {
@@ -64,11 +69,13 @@ class TrainingData: NSObject, NSCoding, DebugPrintable {
     }
     
     override var debugDescription:String {
-        var output = ""
+        var output = "Training data: \n"
         let numCols = numColumns
         let numRows = self.numRows
-        let bufferPointer = UnsafeBufferPointer<Float>(start: UnsafePointer<Float>(data.bytes), count: numCols * numRows)
+        let bufferPointer = UnsafeBufferPointer<RSSIValue>(start: UnsafePointer<Float>(featureData.bytes), count: numCols * numRows)
+        let labelPointer = UnsafeBufferPointer<RSSIValue>(start: UnsafePointer<Float>(labelData.bytes), count: numRows)
         for row in 0..<numRows {
+            output += "\(labelPointer[row]): "
             for col in 0..<numCols {
                 let value = bufferPointer[row * numCols + col]
                 output += "\(value), "

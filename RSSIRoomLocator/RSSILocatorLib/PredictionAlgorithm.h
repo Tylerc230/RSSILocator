@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface PredictionAlgorithm : NSObject
-- (void)train:(NSData *)rawTrainingData numFeatures:(int)numFeatures filterSize:(int)filterSize;
+- (instancetype)initWithNumFeatures:(int)numFeatures filterSize:(int)filterSize;
+- (void)train:(NSMutableData *)featureData labels:(NSMutableData *)labelData;
+- (int)predict:(NSData *)features;
 @end

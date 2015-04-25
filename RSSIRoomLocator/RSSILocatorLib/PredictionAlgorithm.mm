@@ -14,26 +14,38 @@ using namespace cv;
 using namespace std;
 @interface PredictionAlgorithm ()
 @property (nonatomic, assign) CvSVM *SVM;
+@property (nonatomic, assign) int numFeatures;
+@property (nonatomic, assign) int filterSize;
 @end
 
 @implementation PredictionAlgorithm
-- (void)train:(NSData *)rawTrainingData numFeatures:(int)numFeatures filterSize:(int)filterSize{
+- (instancetype)initWithNumFeatures:(int)numFeatures filterSize:(int)filterSize{
+    if (self = [super init]) {
+        self.numFeatures = numFeatures;
+        self.filterSize = filterSize;
+    }
+    return self;
+}
+- (void)train:(NSMutableData *)featureData labels:(NSMutableData *)labelData {
     self.SVM = new CvSVM;
     CvSVMParams params;
     params.svm_type = CvSVM::C_SVC;
     params.kernel_type = CvSVM::RBF;
     params.term_crit = cvTermCriteria(CV_TERMCRIT_ITER, 100, 1e-6);
-    int columns = numFeatures + 1;
-    int rows = (int)(rawTrainingData.length/sizeof(float)) / columns;
-    Mat rawTrainingMatrix = Mat(rows, columns, CV_32F, (void *)rawTrainingData.bytes);
-    Range labelColumn = cv::Range(0, 1);
+    
+    int rows = (int)(featureData.length/sizeof(float)) / self.numFeatures;
+    Mat features = Mat(rows, self.numFeatures, CV_32F, featureData.mutableBytes);
+    Mat labels = Mat(rows, 1, CV_32F, labelData.mutableBytes);
     //todo filter
-    Range featureColumns = cv::Range(1, columns);
-    Mat labels = Mat(rawTrainingMatrix, cv::Range::all(), labelColumn);
-    Mat features = Mat(rawTrainingMatrix, cv::Range::all(), featureColumns);
-//    cout << "labels: " << labels << endl;
-//    cout << "features: " << features << endl;
+    cout << "labels: " << labels << endl;
+    cout << "features: " << features << endl;
     self.SVM->train_auto(features, labels, Mat(), Mat(), params);
+}
+
+- (int)predict:(NSMutableData *)sampleData {
+    Mat sampleMatrix = Mat(self.filterSize, self.numFeatures, CV_32F, sampleData.mutableBytes);
+    cout << sampleMatrix << endl;
+    return self.SVM->predict(sampleMatrix.row(self.filterSize - 1));
 }
 
 - (void)dealloc {

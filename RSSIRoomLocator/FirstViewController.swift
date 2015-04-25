@@ -13,7 +13,7 @@ class FirstViewController: UIViewController {
     required init(coder aDecoder: NSCoder) {
         if TrainingData.hasTrainingData() {
             let trainingData = TrainingData.readFromDisk()
-            roomPredictionEngine = RoomPredictionEngine(trainingData: trainingData)
+            roomPredictionEngine = RoomPredictionEngine(trainingData: trainingData, filterSize:3)
         }
         super.init(coder: aDecoder)
     }

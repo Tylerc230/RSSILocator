@@ -9,23 +9,46 @@
 import Foundation
 
 class RoomPredictionEngine {
-    private let trainingData:TrainingData
-    private let predictionAlgorithm = PredictionAlgorithm()
+    private let predictionAlgorithm:PredictionAlgorithm
     private let rssiSource = RSSISource()
-    init(trainingData:TrainingData) {
-        self.trainingData = trainingData
-        debugPrintln(trainingData)
-        predictionAlgorithm.train(trainingData.data, numFeatures: Int32(trainingData.columns.count), filterSize: 3)
+    private var currentSamples = [RSSISample]()
+    private let filterSize:Int
+    private let matrixGenerator = MatrixGenerator()
+    private let matrix:Matrix<RSSIValue>
+    private let features:[String]
+    
+    init(trainingData:TrainingData, filterSize:Int) {
+        self.filterSize = filterSize
+        features = trainingData.columns
+        let columns = features.count
+        predictionAlgorithm = PredictionAlgorithm(numFeatures: Int32(columns), filterSize: Int32(filterSize))
+        print(trainingData.debugDescription)
+        predictionAlgorithm.train(trainingData.featureData, labels:trainingData.labelData)
+        matrix = Matrix(rows: filterSize, columns: columns)
     }
     
     func startPredicting() {
         let stream = rssiSource.startAdvertisingStream()
         stream.subscribeNext { (obj:AnyObject!) in
-            DDLogInfo("Next value \(obj)")
+            let rssiSample = obj as! RSSISample
+            self.addSample(rssiSample)
+            let prediction = self.predict()
+            NSLog("prediction %d", prediction)
         }
     }
     
-    func predict(latestSample:RSSISample) -> Int {
-        return 1
+    func addSample(sample:RSSISample) {
+        if currentSamples.count >= filterSize {
+            currentSamples.removeLast()
+        }
+        currentSamples.insert(sample, atIndex: 0)
     }
+    
+    func predict() -> Int {
+        matrixGenerator.fillMatrix(matrix, withSamples: currentSamples, featureOrder: features)
+        return Int(predictionAlgorithm.predict(matrix.data))
+    }
+    
+    
+    
 }
