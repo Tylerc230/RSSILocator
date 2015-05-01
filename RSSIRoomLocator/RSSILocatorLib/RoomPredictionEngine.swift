@@ -7,8 +7,11 @@
 //
 
 import Foundation
-
-class RoomPredictionEngine {
+protocol RoomPredictionDelegate {
+    func predictionMade(prediction:Int)
+}
+class RoomPredictionEngine: NSObject {
+    var predictionDelegate:RoomPredictionDelegate? = nil
     private let predictionAlgorithm:PredictionAlgorithm
     private let rssiSource = RSSISource()
     private let filterSize:Int
@@ -31,8 +34,8 @@ class RoomPredictionEngine {
         let stream = rssiSource.startAdvertisingStream()
         stream.subscribeNext { (obj:AnyObject!) in
             let rssiSample = obj as! RSSISample
-            let prediction = self.predict(rssiSample)
-            NSLog("prediction %d", prediction)
+            let currentPrediction = self.predict(rssiSample)
+            self.predictionDelegate?.predictionMade(currentPrediction)
         }
     }
     

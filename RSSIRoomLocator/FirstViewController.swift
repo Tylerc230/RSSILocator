@@ -8,7 +8,8 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, RoomPredictionDelegate {
+    @IBOutlet private weak var predictionLabel:UILabel!
     var roomPredictionEngine:RoomPredictionEngine? = nil
     required init(coder aDecoder: NSCoder) {
         if TrainingData.hasTrainingData() {
@@ -16,13 +17,18 @@ class FirstViewController: UIViewController {
             roomPredictionEngine = RoomPredictionEngine(trainingData: trainingData, filterSize:10)
         }
         super.init(coder: aDecoder)
+        roomPredictionEngine?.predictionDelegate = self
     }
-
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         if !TrainingData.hasTrainingData() {
             showDataTrainer()
         }
+    }
+    
+    func predictionMade(prediction: Int) {
+        predictionLabel.text = "\(prediction)"
     }
     
     @IBAction func startPredictions() {
