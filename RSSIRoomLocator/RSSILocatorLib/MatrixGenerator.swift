@@ -11,27 +11,31 @@ class MatrixGenerator {
     let kSampleExpiration = 1.0
     var lastSampleForUUID = [String:RSSISample]()
     
-    func fillMatrix(matrix:Matrix<RSSIValue>,  withSamples samples:[RSSISample], featureOrder:[String]) {
+    func addSample(sample:RSSISample, toMatrix matrix:Matrix<RSSIValue>, atRow row:Int, featureOrder:[String]) {
         let numColumns = featureOrder.count
+        pruneExpiredSamples(sample.getTimestamp())
+        for column in 0..<numColumns {
+            var cellValue: RSSIValue = 0.0
+            let featureName = featureOrder[column]
+            if sample.peripheralIdentifier == featureName && sample.rssiValue < 0 {
+                cellValue = sample.rssiValue
+            } else {
+                if let lastSample = lastSampleForUUID[featureName] {
+                    cellValue = lastSample.rssiValue
+                } else {
+                    cellValue = kMissingValue
+                }
+            }
+            matrix[row, column] = cellValue
+        }
+        lastSampleForUUID[sample.peripheralIdentifier] = sample
+    }
+    
+    func fillMatrix(matrix:Matrix<RSSIValue>,  withSamples samples:[RSSISample], featureOrder:[String]) {
         let numRows = samples.count
         for row in 0..<numRows {
             let rowSample = samples[row]
-            pruneExpiredSamples(rowSample.getTimestamp())
-            for column in 0..<numColumns {
-                var cellValue: RSSIValue = 0.0
-                let featureName = featureOrder[column]
-                if rowSample.peripheralIdentifier == featureName && rowSample.rssiValue < 0 {
-                    cellValue = rowSample.rssiValue
-                } else {
-                    if let lastSample = lastSampleForUUID[featureName] {
-                        cellValue = lastSample.rssiValue
-                    } else {
-                        cellValue = kMissingValue
-                    }
-                }
-                matrix[row, column] = cellValue
-            }
-            lastSampleForUUID[rowSample.peripheralIdentifier] = rowSample
+            addSample(rowSample, toMatrix: matrix, atRow: row, featureOrder: featureOrder)
         }
     }
     

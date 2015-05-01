@@ -35,25 +35,27 @@ using namespace std;
     
     int rows = (int)(featureData.length/sizeof(float)) / self.numFeatures;
     Mat features = Mat(rows, self.numFeatures, CV_32F, featureData.mutableBytes);
-    Mat filteredFeatures = [self filterMatrix:features];
+    Mat filteredFeatures = [self filterMatrix:features borderType:BORDER_REPLICATE];
     Mat labels = Mat(rows, 1, CV_32F, labelData.mutableBytes);
-    //todo filter
     cout << "labels: " << labels << endl;
     cout << "features: " << features << endl;
     cout << "filtered features " << filteredFeatures << endl;
     self.SVM->train_auto(filteredFeatures, labels, Mat(), Mat(), params);
 }
 
-- (int)predict:(NSMutableData *)sampleData {
+- (int)predict:(NSMutableData *)sampleData row:(int)row {
     Mat sampleMatrix = Mat(self.filterSize, self.numFeatures, CV_32F, sampleData.mutableBytes);
-    cout << sampleMatrix << endl;
-    return self.SVM->predict(sampleMatrix.row(self.filterSize - 1));
+    Mat filteredSamples = [self filterMatrix:sampleMatrix borderType:BORDER_REPLICATE];
+    cout << filteredSamples << endl;
+    return self.SVM->predict(filteredSamples.row(self.filterSize - 1));
 }
 
-- (Mat)filterMatrix:(Mat)featureMatrix {
+- (Mat)filterMatrix:(Mat)featureMatrix borderType:(int)borderType {
     static Mat filter_kernal = Mat::ones(self.filterSize, 1, CV_32F)/self.filterSize;
+    //Since were doing a linear filter We can simple average all the samples in the source buffer and use the sample at the bottom
+    //Since it is the average of all of the samples in the column
     Mat output = Mat(featureMatrix.size(), CV_32F);
-    filter2D(featureMatrix, output, -1, filter_kernal, cv::Point(0, self.filterSize - 1), 0, BORDER_REPLICATE);
+    filter2D(featureMatrix, output, -1, filter_kernal, cv::Point(0, self.filterSize - 1), 0, borderType);
     return output;
 }
 

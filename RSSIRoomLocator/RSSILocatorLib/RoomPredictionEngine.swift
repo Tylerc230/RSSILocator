@@ -15,6 +15,7 @@ class RoomPredictionEngine {
     private let matrixGenerator = MatrixGenerator()
     private let matrix:Matrix<RSSIValue>
     private let features:[String]
+    private var currentPredictinRow = 0
     
     init(trainingData:TrainingData, filterSize:Int) {
         self.filterSize = filterSize
@@ -36,8 +37,10 @@ class RoomPredictionEngine {
     }
     
     func predict(currentSample:RSSISample) -> Int {
-        matrixGenerator.fillMatrix(matrix, withSamples: [currentSample], featureOrder: features)
-        return Int(predictionAlgorithm.predict(matrix.data))
+        matrixGenerator.addSample(currentSample, toMatrix: matrix, atRow: currentPredictinRow, featureOrder: features)
+        let prediction = Int(predictionAlgorithm.predict(matrix.data, row: Int32(currentPredictinRow)))
+        currentPredictinRow = (currentPredictinRow + 1) % filterSize
+        return prediction
     }
     
     

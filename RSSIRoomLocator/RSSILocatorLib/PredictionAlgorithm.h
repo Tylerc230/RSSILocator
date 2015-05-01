@@ -11,5 +11,5 @@
 @interface PredictionAlgorithm : NSObject
 - (instancetype)initWithNumFeatures:(int)numFeatures filterSize:(int)filterSize;
 - (void)train:(NSMutableData *)featureData labels:(NSMutableData *)labelData;
-- (int)predict:(NSData *)features;
+- (int)predict:(NSMutableData *)sampleData row:(int)row;
 @end
