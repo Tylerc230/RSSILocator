@@ -11,7 +11,6 @@ import Foundation
 class RoomPredictionEngine {
     private let predictionAlgorithm:PredictionAlgorithm
     private let rssiSource = RSSISource()
-    private var currentSamples = [RSSISample]()
     private let filterSize:Int
     private let matrixGenerator = MatrixGenerator()
     private let matrix:Matrix<RSSIValue>
@@ -31,21 +30,13 @@ class RoomPredictionEngine {
         let stream = rssiSource.startAdvertisingStream()
         stream.subscribeNext { (obj:AnyObject!) in
             let rssiSample = obj as! RSSISample
-            self.addSample(rssiSample)
-            let prediction = self.predict()
+            let prediction = self.predict(rssiSample)
             NSLog("prediction %d", prediction)
         }
     }
     
-    func addSample(sample:RSSISample) {
-        if currentSamples.count >= filterSize {
-            currentSamples.removeLast()
-        }
-        currentSamples.insert(sample, atIndex: 0)
-    }
-    
-    func predict() -> Int {
-        matrixGenerator.fillMatrix(matrix, withSamples: currentSamples, featureOrder: features)
+    func predict(currentSample:RSSISample) -> Int {
+        matrixGenerator.fillMatrix(matrix, withSamples: [currentSample], featureOrder: features)
         return Int(predictionAlgorithm.predict(matrix.data))
     }
     

@@ -35,17 +35,26 @@ using namespace std;
     
     int rows = (int)(featureData.length/sizeof(float)) / self.numFeatures;
     Mat features = Mat(rows, self.numFeatures, CV_32F, featureData.mutableBytes);
+    Mat filteredFeatures = [self filterMatrix:features];
     Mat labels = Mat(rows, 1, CV_32F, labelData.mutableBytes);
     //todo filter
     cout << "labels: " << labels << endl;
     cout << "features: " << features << endl;
-    self.SVM->train_auto(features, labels, Mat(), Mat(), params);
+    cout << "filtered features " << filteredFeatures << endl;
+    self.SVM->train_auto(filteredFeatures, labels, Mat(), Mat(), params);
 }
 
 - (int)predict:(NSMutableData *)sampleData {
     Mat sampleMatrix = Mat(self.filterSize, self.numFeatures, CV_32F, sampleData.mutableBytes);
     cout << sampleMatrix << endl;
     return self.SVM->predict(sampleMatrix.row(self.filterSize - 1));
+}
+
+- (Mat)filterMatrix:(Mat)featureMatrix {
+    static Mat filter_kernal = Mat::ones(self.filterSize, 1, CV_32F)/self.filterSize;
+    Mat output = Mat(featureMatrix.size(), CV_32F);
+    filter2D(featureMatrix, output, -1, filter_kernal, cv::Point(0, self.filterSize - 1), 0, BORDER_REPLICATE);
+    return output;
 }
 
 - (void)dealloc {
