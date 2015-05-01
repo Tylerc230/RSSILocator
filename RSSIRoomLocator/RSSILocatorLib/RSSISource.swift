@@ -26,6 +26,11 @@ public class RSSISource: NSObject {
             let rssi = params.fourth as! RSSIValue
             let UUIDString = peripheral.identifier.UUIDString
             return RSSISample(peripheralIdentifier: UUIDString, rssiValue: rssi)
+            }.filter {
+                obj in
+                let sample = obj as! RSSISample
+                let isSensorTag = sample.peripheralIdentifier == "14068A33-D254-AD85-C3E4-75FAD34EFA7C"
+                return isSensorTag
         }
     }
     
